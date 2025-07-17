@@ -1,4 +1,4 @@
-# Sales-Customer-Funnel-Report
+# Sales & Customer Funnel Report
 **Objective**:
 
 This project aims to uncover insights from sales data using Power BI, focusing on customer behavior, transaction performance, and regional sales trends. The dashboard enables stakeholders to make data-driven decisions based on real-time, visual insights.
