@@ -56,6 +56,10 @@ Includes order-level data such as:
 - Guides customer retention strategy through repeat customer behavior tracking
 - Highlights regional performance, assisting in location-specific promotions
 
+**Screenshots**
+
+
+
 **Tools & Technologies Used**
 
 - Power BI for data visualization
