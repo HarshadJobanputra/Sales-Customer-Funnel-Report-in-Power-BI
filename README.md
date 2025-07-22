@@ -65,3 +65,41 @@ Includes order-level data such as:
 - Power BI for data visualization
 - Excel for raw data preparation and formatting
 - DAX for calculated columns & KPIs
+
+
+**Queries implemented for analysis**
+
+**Repeat Customers =**
+    CALCULATE(COUNTROWS(VALUES(sales[Customer Id])),
+        FILTER(VALUES(sales[Customer Id]),
+            CALCULATE(DISTINCTCOUNT(sales[Order Number])) > 1
+        ))
+
+**Single Order Customers =**
+    CALCULATE(COUNTROWS(VALUES(sales[Customer Id])),
+        FILTER(VALUES(sales[Customer Id]),
+            CALCULATE(DISTINCTCOUNT(sales[Order Number])) = 1
+        ))
+
+**Total Customers =** DISTINCTCOUNT(sales[Customer Id])
+
+**Repeat Rate =** [Repeat Customers] / [Total Customers]
+
+**Total Quantity =** SUM(sales[Quantity])
+
+**Life Time Value =** [Net Sales]/[Total Customers]
+
+**Map Title =** "Regional Overview - Province & Cities by " & SELECTEDVALUE('Select Measure'[Dynamic Title])
+
+**Net Avg Order Value =** AVERAGE(sales[Subtotal Price])
+
+**Net Sales =** SUM(sales[Subtotal Price])
+
+**Purchase Frequency =** DISTINCTCOUNT(sales[Order Number])/[Total Customers]
+
+**Product Title =** SELECTEDVALUE('Select Measure'[Dynamic Title]) & " by Product Type"
+
+**Trend Title =** SELECTEDVALUE('Select Measure'[Dynamic Title]) & " Trend Over Time"
+
+**Gateway Title =** SELECTEDVALUE('Select Measure'[Dynamic Title]) & " by Gateway Payment Method"
+
