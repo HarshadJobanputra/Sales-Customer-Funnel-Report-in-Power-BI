@@ -124,5 +124,7 @@ Includes order-level data such as:
 
     SELECTEDVALUE('Select Measure'[Dynamic Title]) & " Trend Over Time"
 
-**Gateway Title =** SELECTEDVALUE('Select Measure'[Dynamic Title]) & " by Gateway Payment Method"
+**Gateway Title =** 
+
+    SELECTEDVALUE('Select Measure'[Dynamic Title]) & " by Gateway Payment Method"
 
