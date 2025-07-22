@@ -70,36 +70,59 @@ Includes order-level data such as:
 **Queries implemented for analysis**
 
 **Repeat Customers =**
+
     CALCULATE(COUNTROWS(VALUES(sales[Customer Id])),
         FILTER(VALUES(sales[Customer Id]),
             CALCULATE(DISTINCTCOUNT(sales[Order Number])) > 1
         ))
 
 **Single Order Customers =**
+
     CALCULATE(COUNTROWS(VALUES(sales[Customer Id])),
         FILTER(VALUES(sales[Customer Id]),
             CALCULATE(DISTINCTCOUNT(sales[Order Number])) = 1
         ))
 
-**Total Customers =** DISTINCTCOUNT(sales[Customer Id])
+**Total Customers =** 
 
-**Repeat Rate =** [Repeat Customers] / [Total Customers]
+    DISTINCTCOUNT(sales[Customer Id])
 
-**Total Quantity =** SUM(sales[Quantity])
+**Repeat Rate =** 
 
-**Life Time Value =** [Net Sales]/[Total Customers]
+    [Repeat Customers] / [Total Customers]
 
-**Map Title =** "Regional Overview - Province & Cities by " & SELECTEDVALUE('Select Measure'[Dynamic Title])
+**Total Quantity =** 
+    
+    SUM(sales[Quantity])
 
-**Net Avg Order Value =** AVERAGE(sales[Subtotal Price])
+**Life Time Value =** 
+    
+    
+    [Net Sales]/[Total Customers]
 
-**Net Sales =** SUM(sales[Subtotal Price])
+**Map Title =** 
 
-**Purchase Frequency =** DISTINCTCOUNT(sales[Order Number])/[Total Customers]
+    "Regional Overview - Province & Cities by " & SELECTEDVALUE('Select Measure'[Dynamic Title])
 
-**Product Title =** SELECTEDVALUE('Select Measure'[Dynamic Title]) & " by Product Type"
+**Net Avg Order Value =** 
 
-**Trend Title =** SELECTEDVALUE('Select Measure'[Dynamic Title]) & " Trend Over Time"
+    AVERAGE(sales[Subtotal Price])
+
+**Net Sales =** 
+
+    SUM(sales[Subtotal Price])
+
+**Purchase Frequency =** 
+
+    DISTINCTCOUNT(sales[Order Number])/[Total Customers]
+
+**Product Title =** 
+
+    SELECTEDVALUE('Select Measure'[Dynamic Title]) & " by Product Type"
+
+**Trend Title =** 
+
+    SELECTEDVALUE('Select Measure'[Dynamic Title]) & " Trend Over Time"
 
 **Gateway Title =** SELECTEDVALUE('Select Measure'[Dynamic Title]) & " by Gateway Payment Method"
 
